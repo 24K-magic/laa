@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	addwhlle()
+	function addwhlle(){
+		var use = window.navigator.userAgent.toLowerCase();
+		if(use.indexOf('firefox') != -1){			
+			window.addEventListener('DOMMouseScroll',fn,false)
+		}else if(use.indexOf('msie') != -1){
+			window.attachEvent('onmousewheel',fn)			
+		}else{
+			window.addEventListener('mousewheel',fn,false)
+		}
+	}
+	function fn(ev){
+		var down = true;
+		if(ev.detail){
+			down = ev.detail>0?false:true;
+		}else{
+			down = ev.wheelDelta>0?true:false;
+		}
+		if(down){
+			console.log('上')
+		}else{
+		    console.log('下')
+		}
+	}
+	
+</script>
